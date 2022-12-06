@@ -32,3 +32,11 @@ Route::get('/tweet', function () {
 Route::get('/user', function () {
     return view('user');
 });
+
+Route::get('/follower', function () {
+    return view('user');
+});
+
+Route::get('/user-settings', function () {
+    return view('user-settings');
+});
