@@ -12,7 +12,19 @@
 
     </head>
     <body class="">
-        login
+    <x-header></x-header>
+    login
+    <form action="">
+        <label for="username">
+            UserName
+        </label>
+        <input type="text" id="username">
+        <label for="password">
+            Password
+        </label>
+        <input type="password" id="password">
+        <button type="submit">login</button>
+    </form>
     </body>
     <footer>
         <script src="{{ asset('/js/app.js') }}"></script>
