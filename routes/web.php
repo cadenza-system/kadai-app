@@ -24,3 +24,7 @@ Route::get('/login', function () {
 Route::get('/post', function () {
     return view('post');
 });
+
+Route::get('/tweet', function () {
+    return view('tweet');
+});

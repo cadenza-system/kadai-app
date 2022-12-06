@@ -29,7 +29,6 @@ header .icon {
 .tweet {
     padding-bottom: 20px;
     width: 100%;
-
 }
 
 .tweet .icon {
@@ -54,4 +53,18 @@ header .icon {
 .tweet .content {
     font-size: 20px;
     padding-left: 40px;
+}
+
+.tweet-page .tweet {
+    padding: 0 10px;
+
+}
+
+.tweet-page .tweet .menu {
+    display: flex;
+    justify-content: end;
+}
+
+.tweet-page .menu-item {
+    padding: 5px
 }
