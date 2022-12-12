@@ -22,12 +22,6 @@ class User extends Model
     }
 
     public function posts() {
-        // $result = [];
-        // foreach ($this->hasMany(Post::class) as $post) {
-        //     array_push(array('user'=>$post));
-        // }
-
-        // return $result;
         return $this->hasMany(Post::class);
     }
 }

@@ -15,19 +15,19 @@ class HomeController extends Controller
             return redirect('/login');
         }
 
-        // タイムラインに表示するツイートを取得
-        $user = Session::get('user');
+        // ログイン中のユーザーの情報を取得する
+        $loginUser = Session::get('user');
 
         // フォローしているユーザーを取得
-        $followUsers = $user->followUsers();
+        $followUsers = $loginUser->followUsers();
         // 各ユーザーの投稿を取得
-
         $posts = [];
         foreach ($followUsers as $followUser) {
             foreach ($followUser->posts as $post) {
                 array_push($posts, array('user'=> $followUser, 'post'=> $post));
             }
         }
-        return view('home', compact('user'), compact('posts'));
+
+        return view('home', compact('posts'));
     }
 }

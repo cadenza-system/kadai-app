@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,17 +19,18 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
+
 Route::get('/post', function () {
     return view('post');
 });
+
+Route::get('/user/{id}', [UserController::class, 'index']);
 
 Route::get('/tweet', function () {
     return view('tweet');
 });
 
-Route::get('/user', function () {
-    return view('user');
-});
+
 
 Route::get('/follower', function () {
     return view('user');

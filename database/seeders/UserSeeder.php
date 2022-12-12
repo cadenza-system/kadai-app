@@ -18,18 +18,21 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'oca',
             'email' => 'oca@email.com',
+            'biography' => 'ocaのアカウントです',
             'password' => 'oca',
         ]);
 
         User::create([
-            'name' => '名言bot',
+            'name' => 'プログラマー名言bot',
             'email' => 'meigen@email.com',
+            'biography' => 'プログラマーを名言投稿します',
             'password' => 'meigen',
         ]);
 
         User::create([
             'name' => 'ElonMusk',
             'email' => 'elonmusk@email.com',
+            'biography' => 'Twitter, テスラ CEO',
             'password' => 'elonmusk',
         ]);
     }

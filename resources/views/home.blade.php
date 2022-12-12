@@ -13,17 +13,9 @@
 
     </head>
     <body class="">
-        <x-header>{{ $user->name }}</x-header>
+        <x-header></x-header>
         タイムライン
         <div class="tweet-list">
-        <!-- <div class="tweet">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div> -->
         @foreach ($posts as $post)
         <div class="tweet">
             <div class="user">
@@ -36,7 +28,6 @@
             <div class="content">{{ $post['post']->content }}</div>
             <div class="time-stamp">{{ $post['post']->created_at }}</div>
         </div>
-
         @endforeach
     </body>
     <footer>

@@ -14,7 +14,7 @@
         </div>
         <div class="user">
           <div class="icon"></div>
-          <div class="username"> {{ $slot }}</div>
+          <div class="username"> {{ $loginUser = Session::get('user')->name }}</div>
         </div>
     </header>
 </body>

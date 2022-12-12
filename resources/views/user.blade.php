@@ -18,47 +18,28 @@
             <div class="user">
                 <div class="icon">
                 </div>
-                <div class="name">daichi</div>
+                <div class="name">{{ $user->name }}</div>
                 <div class="edit">編集</div>
             </div>
             <div class="bio">
-                広島県出身・大阪府在住エンジニア
+                {{ $user->biography }}
             </div>
         </div>
         ツイート一覧
         <div class="tweet-list">
+        @foreach ($posts as $post)
         <div class="tweet">
             <div class="user">
                 <div class="icon">
                 </div>
-                <div class="name">hoge</div>
+                <div class="name">
+                    {{ $user->name }}
+                </div>
             </div>
-            <div class="content">testestetste</div>
+            <div class="content">{{ $post->content }}</div>
+            <div class="time-stamp">{{ $post->created_at }}</div>
         </div>
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>        
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>
+        @endforeach
     </body>
     <footer>
         <script src="{{ asset('/js/app.js') }}"></script>
