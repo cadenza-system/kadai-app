@@ -12,6 +12,7 @@
 </head>
 
 <body class="">
+    @stack('scripts')
     <x-header></x-header>
     <div class="user-info">
         <div class="user">

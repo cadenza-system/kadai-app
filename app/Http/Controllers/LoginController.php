@@ -32,4 +32,9 @@ class LoginController extends Controller
         Session::put('user', $user);
         return redirect('/');
     }
+
+    public function logout() {
+        Session::flush();
+        return redirect('/login');
+    }
 }
