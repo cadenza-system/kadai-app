@@ -7,7 +7,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}" />
 
-    <title>kadai-app | post</title>
+    <title>kadai-app</title>
 
 </head>
 

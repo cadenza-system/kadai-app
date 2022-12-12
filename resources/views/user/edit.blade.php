@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
 
-    <title>kadai-app | home</title>
+    <title>kadai-app</title>
 </head>
 
 <body class="">
