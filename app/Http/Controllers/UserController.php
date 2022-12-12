@@ -26,11 +26,14 @@ class UserController extends Controller
 
         // ユーザーの投稿を取得
         $posts = $user->posts;
+        // フォロー/フォロワー数の取得
+        $followCount = count($user->followUsers());
+        $followerCount = count($user->followerUsers());
         // ログイン中のユーザーの情報を取得する
         $loginUser = Session::get('user');
         // 自分自身のユーザーページか判定
         $isOwnPage = $loginUser->id == $user->id;
-        return view('user.index', compact('user','posts','isOwnPage'));
+        return view('user.index', compact('user','posts','followCount','followerCount','isOwnPage'));
     }
 
     public function edit($id)

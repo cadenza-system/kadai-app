@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FollowController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +31,8 @@ Route::get('/user/{id}', [UserController::class, 'index']);
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::put('/user/edit/{id}', [UserController::class, 'update']);
 
-Route::get('/follower', function () {
-    return view('user');
-});
+Route::get('user/{id}/follow', [FollowController::class, 'index']);
+Route::get('user/{id}/follower', [FollowController::class, 'index']);
 
 Route::get('/user-settings', function () {
     return view('user-settings');

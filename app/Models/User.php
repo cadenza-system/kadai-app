@@ -11,6 +11,10 @@ class User extends Model
 {
     use HasFactory;
 
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
     public function followUsers() {
         $followUsers = Follow::where('user', $this->id)->get();
         $result = [];
@@ -21,7 +25,12 @@ class User extends Model
 
     }
 
-    public function posts() {
-        return $this->hasMany(Post::class);
+    public function followerUsers() {
+        $followerUsers = Follow::where('follow_user', $this->id)->get();
+        $result = [];
+        foreach ($followerUsers as $followUser) {
+            array_push($result, $followUser->followerUser());
+        }
+        return $result;
     }
 }

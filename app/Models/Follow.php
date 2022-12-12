@@ -12,4 +12,8 @@ class Follow extends Model
     public function followUser() {
         return User::find($this->follow_user);
     }
+
+    public function followerUser() {
+        return User::find($this->user);
+    }
 }
