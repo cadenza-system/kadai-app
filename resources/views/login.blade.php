@@ -14,17 +14,22 @@
     <body class="">
     <x-header></x-header>
     login
-    <form action="">
+    <form action="/login" method="post">
+    @csrf
         <label for="username">
-            UserName
+        Email
         </label>
-        <input type="text" id="username">
+        <input type="text" id="email" name="email">
         <label for="password">
             Password
         </label>
-        <input type="password" id="password">
+        <input type="password" id="password" name="password">
         <button type="submit">login</button>
     </form>
+
+    @if ($errorMessage)
+        {{ $errorMessage }}
+    @endif
     </body>
     <footer>
         <script src="{{ asset('/js/app.js') }}"></script>

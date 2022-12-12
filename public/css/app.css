@@ -3,35 +3,40 @@ body {
 }
 
 header {
-  background-color: gray;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  padding: 0 10px;
-
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
 }
 
 .logo {
-color: aliceblue;
-  font-size: 24px;
+    color: aliceblue;
+    font-size: 24px;
 }
 
 header .icon {
     width: 34px;
     height: 34px;
+}
 
+header .user {
+    display: flex;
+    width: 20vw;
+    justify-content: space-around;
 }
 
 .tweet-list {
-    padding:40px 0 0 10px;
+    padding: 40px 0 0 10px;
 }
+
 .tweet {
     padding-bottom: 20px;
     width: 100%;
 }
 
-.user-info .name{
+.user-info .name {
     font-size: 24px;
 }
 
@@ -70,7 +75,6 @@ header .icon {
 
 .tweet-page .tweet {
     padding: 0 10px;
-
 }
 
 .tweet-page .tweet .menu {

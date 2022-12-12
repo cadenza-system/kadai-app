@@ -12,7 +12,10 @@
         <div class="logo">
           Kadai-app
         </div>
-        <div class="icon"></div>
+        <div class="user">
+          <div class="icon"></div>
+          <div class="username"> {{ $slot }}</div>
+        </div>
     </header>
 </body>
 </html>

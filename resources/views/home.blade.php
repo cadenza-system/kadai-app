@@ -13,7 +13,7 @@
 
     </head>
     <body class="">
-        <x-header></x-header>
+        <x-header>{{ $user->name }}</x-header>
         タイムライン
         <div class="tweet-list">
         <div class="tweet">
@@ -31,7 +31,7 @@
                 <div class="name">hoge</div>
             </div>
             <div class="content">testestetste</div>
-        </div>        
+        </div>
         <div class="tweet">
             <div class="user">
                 <div class="icon">
