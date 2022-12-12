@@ -11,6 +11,6 @@ class Post extends Model
     use HasFactory;
 
     public function user() {
-        return User::find($this->user_id);
+        return User::find($this->user);
     }
 }

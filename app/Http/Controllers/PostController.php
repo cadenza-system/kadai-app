@@ -30,7 +30,7 @@ class PostController extends Controller
         $loginUser = Session::get('user');
 
         $post = new Post;
-        $post->user_id = $loginUser->id;
+        $post->user = $loginUser->id;
         $post->content = $request->postContent;
         $post->save();
 
@@ -112,5 +112,33 @@ class PostController extends Controller
         $post->content = $request->postContent;
         $post->save();
         return redirect('/post/detail/'.$post->id);
+    }
+
+    public function delete($id)
+    {
+        // idから投稿を取得
+        $post = Post::find($id);
+
+        // 投稿が存在するか判定
+        if ($post == null) {
+            return dd('存在しない投稿です');
+        }
+        // セッションにログイン情報があるか確認
+        if (!Session::exists('user')) {
+            return redirect('/');
+        }
+
+        // ログイン中のユーザーの情報を取得する
+        $loginUser = Session::get('user');
+        // 投稿者を取得する
+        $user = $post->user();
+        // 自分自身の投稿ページか判定
+        if ($loginUser->id != $user->id) {
+            return redirect('/');
+        }
+
+        $post->is_deleted = true;
+        $post->save();
+        return redirect('/');
     }
 }

@@ -19,15 +19,27 @@ class HomeController extends Controller
         $loginUser = Session::get('user');
 
         // フォローしているユーザーを取得
-        $followUsers = $loginUser->followUsers();
+        $users = $loginUser->followUsers();
+        // ログインしているユーザー自身も表示に含める
+        array_push($users, $loginUser);
         // 各ユーザーの投稿を取得
         $posts = [];
-        foreach ($followUsers as $followUser) {
-            foreach ($followUser->posts as $post) {
-                array_push($posts, array('user'=> $followUser, 'post'=> $post));
+        foreach ($users as $user) {
+            foreach ($user->posts() as $post) {
+                array_push($posts, array('user'=> $user, 'post'=> $post));
             }
         }
+        $posts = $this->sort($posts);
 
         return view('home', compact('posts'));
+    }
+
+    private function sort($array) {
+        foreach ($array as $key => $value) {
+            $standard_key_array[$key] = $value['post']['created_at'];
+        }
+        array_multisort($standard_key_array, SORT_DESC, $array);
+
+        return $array;
     }
 }

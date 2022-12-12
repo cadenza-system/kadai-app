@@ -12,7 +12,10 @@ class User extends Model
     use HasFactory;
 
     public function posts() {
-        return $this->hasMany(Post::class);
+        return Post::where('user', $this->id)
+        ->where('is_deleted', 0)
+        ->orderBy('created_at', 'desc')
+        ->get();
     }
 
     public function followUsers() {

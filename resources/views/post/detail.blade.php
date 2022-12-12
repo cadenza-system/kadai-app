@@ -27,7 +27,12 @@
                 <div class="menu-item font-blue">
                     <a href="/post/edit/{{ $post->id }}">編集</a>
                 </div>
-                <div class="menu-item font-red">削除</div>
+                <form name="delete" action="/post/delete/{{ $post->id }}" method="post">
+                    @csrf
+                    <div class="menu-item font-red" onclick="deletePost()">
+                        削除
+                    </div>
+                </form>
             </div>
             @endif
         </div>
@@ -35,6 +40,13 @@
 </body>
 <x-footer></x-footer>
 <script src="{{ asset('/js/app.js') }}"></script>
+<script>
+    function deletePost() {
+        if (confirm("削除しますか?")) {
+            document.delete.submit();
+        }
+    }
+</script>
 <style scoped>
     .post-detail-page .user-icon {
         width: 50px;

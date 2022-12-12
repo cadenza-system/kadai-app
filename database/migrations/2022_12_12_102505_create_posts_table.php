@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user');
             $table->string('content',140);
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
