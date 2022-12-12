@@ -9,9 +9,11 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+      <a href="/">
+      <div class="logo">
           Kadai-app
         </div>
+      </a>
         @if (Session::exists('user'))
         <a href="/user/{{ Session::get('user')->id }}">
         <div class="user">

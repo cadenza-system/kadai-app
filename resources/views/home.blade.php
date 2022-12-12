@@ -18,15 +18,19 @@
         <div class="post-list">
             @foreach ($posts as $post)
                 <div class="post">
-                    <div class="user">
-                        <div class="icon">
+                    <a href="/user/{{ $post['user']->id }}">
+                        <div class="user">
+                            <div class="icon">
+                            </div>
+                            <div class="name">
+                                {{ $post['user']->name }}
+                            </div>
                         </div>
-                        <div class="name">
-                            {{ $post['user']->name }}
-                        </div>
-                    </div>
-                    <div class="content">{{ $post['post']->content }}</div>
-                    <div class="time-stamp">{{ $post['post']->created_at }}</div>
+                    </a>
+                    <a href="/post/detail/{{ $post['post']->id }}">
+                        <div class="content">{{ $post['post']->content }}</div>
+                        <div class="time-stamp">{{ $post['post']->created_at }}</div>
+                    </a>
                 </div>
             @endforeach
         </div>
