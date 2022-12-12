@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="save-button">
-                    <button class="button-white">保存</button>
+                    <button class="button-white">変更を保存</button>
                 </div>
             </form>
         </div>
