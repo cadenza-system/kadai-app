@@ -16,21 +16,21 @@
         <x-header></x-header>
         タイムライン
         <div class="tweet-list">
-        @foreach ($posts as $post)
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
+            @foreach ($posts as $post)
+                <div class="tweet">
+                    <div class="user">
+                        <div class="icon">
+                        </div>
+                        <div class="name">
+                            {{ $post['user']->name }}
+                        </div>
+                    </div>
+                    <div class="content">{{ $post['post']->content }}</div>
+                    <div class="time-stamp">{{ $post['post']->created_at }}</div>
                 </div>
-                <div class="name">
-                    {{ $post['user']->name }}
-                </div>
-            </div>
-            <div class="content">{{ $post['post']->content }}</div>
-            <div class="time-stamp">{{ $post['post']->created_at }}</div>
+            @endforeach
         </div>
-        @endforeach
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <x-footer></x-footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

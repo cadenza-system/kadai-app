@@ -14,12 +14,11 @@
     <body class="">
     <x-header></x-header>
     投稿
-    <form action="">
-        <textarea name="" id="" cols="30" rows="5"></textarea>
+    <form action="/post" method="post">
+    @csrf
+        <textarea name="postContent" id="" cols="30" rows="5"></textarea>
         <button type="submit">投稿</button>
     </form>
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

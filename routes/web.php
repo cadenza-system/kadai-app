@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +19,9 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/post', function () {
-    return view('post');
-});
+Route::get('/post', [PostController::class, 'index']);
+Route::post('/post', [PostController::class, 'store']);
 
 Route::get('/user/{id}', [UserController::class, 'index']);
 

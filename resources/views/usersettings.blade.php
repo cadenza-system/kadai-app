@@ -42,7 +42,7 @@
                 <div class="name">hoge</div>
             </div>
             <div class="content">testestetste</div>
-        </div>        
+        </div>
         <div class="tweet">
             <div class="user">
                 <div class="icon">
@@ -60,7 +60,5 @@
             <div class="content">testestetste</div>
         </div>
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

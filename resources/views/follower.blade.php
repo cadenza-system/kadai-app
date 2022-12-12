@@ -42,14 +42,6 @@
                 <div class="name">hoge</div>
             </div>
             <div class="content">testestetste</div>
-        </div>        
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
         </div>
         <div class="tweet">
             <div class="user">
@@ -59,8 +51,15 @@
             </div>
             <div class="content">testestetste</div>
         </div>
+        <div class="tweet">
+            <div class="user">
+                <div class="icon">
+                </div>
+                <div class="name">hoge</div>
+            </div>
+            <div class="content">testestetste</div>
+        </div>
+        <x-footer></x-footer>
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

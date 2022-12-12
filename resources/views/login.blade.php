@@ -31,7 +31,5 @@
         {{ $errorMessage }}
     @endif
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

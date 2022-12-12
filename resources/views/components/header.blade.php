@@ -13,8 +13,10 @@
           Kadai-app
         </div>
         <div class="user">
+        @if (Session::exists('user'))
           <div class="icon"></div>
           <div class="username"> {{ $loginUser = Session::get('user')->name }}</div>
+        @endif
         </div>
     </header>
 </body>

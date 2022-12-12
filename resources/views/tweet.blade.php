@@ -22,14 +22,13 @@
                 <div class="name">マーク・トウェイン</div>
             </div>
             <div class="content">今から20年後、あなたはやったことよりもやらなかったことを悔やむことになるだろう。そうなる前に、安穏とした港から船を出せ。自分自身の帆で貿易風を受け止めよ。真に求めるものを探求し、叶うことを願い、見出すのだ</div>
-            <div class="menu">        
+            <div class="menu">
                 <div class="menu-item">編集</div>
                 <div class="menu-item">削除</div>
             </div>
         </div>
     </div>
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <x-footer></x-footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

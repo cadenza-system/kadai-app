@@ -27,21 +27,21 @@
         </div>
         ツイート一覧
         <div class="tweet-list">
-        @foreach ($posts as $post)
-        <div class="tweet">
-            <div class="user">
-                <div class="icon">
+            @foreach ($posts as $post)
+                <div class="tweet">
+                    <div class="user">
+                        <div class="icon">
+                        </div>
+                        <div class="name">
+                            {{ $user->name }}
+                        </div>
+                    </div>
+                    <div class="content">{{ $post->content }}</div>
+                    <div class="time-stamp">{{ $post->created_at }}</div>
                 </div>
-                <div class="name">
-                    {{ $user->name }}
-                </div>
-            </div>
-            <div class="content">{{ $post->content }}</div>
-            <div class="time-stamp">{{ $post->created_at }}</div>
+            @endforeach
         </div>
-        @endforeach
+        <x-footer></x-footer>
     </body>
-    <footer>
-        <script src="{{ asset('/js/app.js') }}"></script>
-    </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </html>

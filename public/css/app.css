@@ -11,6 +11,15 @@ header {
     padding: 0 10px;
 }
 
+footer {
+    background-color: gray;
+    height: 50px;
+    width: 100vw;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+}
+
 .logo {
     color: aliceblue;
     font-size: 24px;
