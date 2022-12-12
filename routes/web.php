@@ -20,7 +20,9 @@ use App\Http\Controllers\FollowController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login',  [LoginController::class, 'login']);
 Route::post('/logout',  [LoginController::class, 'logout']);
+
 Route::get('/post', [PostController::class, 'index']);
 Route::get('/post/detail/{id}', [PostController::class, 'show']);
 Route::get('/post/edit/{id}', [PostController::class, 'edit']);

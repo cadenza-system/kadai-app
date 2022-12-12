@@ -13,18 +13,32 @@
 
 <body class="">
     <x-header></x-header>
-    <div class="post-page">
+    <div class=" page post-edit-page">
         <form action="/post/edit/{{ $post->id }}" method="post">
             @csrf @method('PUT')
             <div class="post">
                 <textarea name="postContent" id="" cols="30" rows="10">{{ $post->content }}</textarea>
             </div>
             <input type="hidden" name="postid" value="{{$post->id}}" />
-            <button type="submit">保存</button>
+            <div class="save-button">
+                <button class="button-white">保存</button>
+            </div>
     </div>
     </form>
 </body>
 <x-footer></x-footer>
 <script src="{{ asset('/js/app.js') }}"></script>
+<style scoped>
+    .post-edit-page .post {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .post-edit-page .save-button {
+        display: flex;
+        justify-content: end;
+        margin: 10px 10px 0 0;
+    }
+</style>
 
 </html>

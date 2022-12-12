@@ -12,21 +12,22 @@
 
 <body class="">
     <x-header></x-header>
-    <div class="post-page">
+    <div class="page post-detail-page">
         <div class="post">
             <a href="/user/{{ $user->id }}">
-                <div class="user">
-                    <div class="icon"></div>
-                    <div class="name">{{ $user->name }}</div>
+                <div class="user-info">
+                    <img class="user-icon" src="{{ asset('/img/user_icon.png') }}" alt="" />
+                    <div class="user-name">{{ $user->name }}</div>
                 </div>
                 <div class="content">{{ $post->content }}</div>
+                <div class="time-stamp">{{ $post->created_at }}</div>
             </a>
             @if ($isOwnPost)
             <div class="menu">
-                <div class="menu-item">
+                <div class="menu-item font-blue">
                     <a href="/post/edit/{{ $post->id }}">編集</a>
                 </div>
-                <div class="menu-item">削除</div>
+                <div class="menu-item font-red">削除</div>
             </div>
             @endif
         </div>
@@ -34,5 +35,53 @@
 </body>
 <x-footer></x-footer>
 <script src="{{ asset('/js/app.js') }}"></script>
+<style scoped>
+    .post-detail-page .user-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .post-detail-page .user-info {
+        display: flex;
+    }
+    
+    .post-detail-page .user-name {
+        line-height: 50px;
+        font-size: 18px;
+    }
+    
+    .post-detail-page .time-stamp {
+        text-align: end;
+        font-size: 14px;
+    }
+    
+    .post-detail-page .post {
+        padding: 0 10px;
+    }
+    
+    .post-detail-page .menu {
+        display: flex;
+        justify-content: end;
+    }
+    
+    .post-detail-page .menu-item {
+        font-size: 16px;
+        margin: 0 2px;
+    }
+    
+    .post-detail-page .menu-item {
+        font-size: 16px;
+        margin: 0 2px;
+    }
+    
+    .post-detail-page .menu-item {
+        font-size: 16px;
+        margin: 0 2px;
+    }
+    
+    .post-detail-page .content {
+        word-wrap: break-word;
+    }
+</style>
 
 </html>

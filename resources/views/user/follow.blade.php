@@ -11,11 +11,9 @@
 
 <body>
     <x-header></x-header>
-    <div class="page">
+    <div class="page follow-page">
         <a href="/user/{{ $user->id }}">
-            <div class="user">
-                {{ $user->name }}
-            </div>
+            <div class="user">{{ $user->name }}</div>
         </a>
         <div class="tab">
             <div id="follow-tab" class="tab-item follow-tab" onclick="switchTab('follow')">
@@ -29,7 +27,7 @@
             @foreach ($followUsers as $followUser)
             <a href="/user/{{ $followUser->id }}">
                 <div class="user-list-item">
-                    <div class="icon"></div>
+                    <img class="user-icon" src="{{ asset('/img/user_icon.png') }}" alt="" />
                     <div class="info">
                         <div class="user-name">{{ $followUser->name }}</div>
                         <div class="biography">
@@ -44,7 +42,7 @@
             @foreach ($followerUsers as $followerUser)
             <a href="/user/{{ $followerUser->id }}">
                 <div class="user-list-item">
-                    <div class="icon"></div>
+                    <img class="user-icon" src="{{ asset('/img/user_icon.png') }}" alt="" />
                     <div class="info">
                         <div class="user-name">
                             {{ $followerUser->name }}
@@ -87,49 +85,47 @@
     }
 </script>
 <style scoped>
-    .tab {
+    .follow-page .tab {
         display: flex;
         justify-content: space-evenly;
         height: 30px;
     }
     
-    .tab-item {
+    .follow-page .tab-item {
         width: 50vw;
         text-align: center;
     }
     
-    .icon {
+    .follow-page .user-icon {
         width: 35px;
         height: 35px;
-        border-radius: 50%;
-        background-color: coral;
         margin-right: 5px;
     }
     
-    .user {
+    .follow-page .user {
         font-size: larger;
         font-weight: bolder;
         padding: 5px 0 10px 10px;
     }
     
-    .user-list-item {
+    .follow-page .user-list-item {
         display: flex;
         padding: 0 0 10px 10px;
     }
     
-    .user-name {
+    .follow-page .user-name {
         font-weight: bold;
     }
     
-    .biography {
+    .follow-page .biography {
         font-size: small;
     }
     
-    .hidden {
+    .follow-page .hidden {
         display: none;
     }
     
-    .selected {
+    .follow-page .selected {
         text-decoration: underline overline lightblue;
     }
 </style>
