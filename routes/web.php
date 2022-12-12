@@ -31,6 +31,7 @@ Route::get('/', [HomeController::class, 'index']);
 /** ログイン画面遷移 */
 Route::get('/login', [LoginController::class, 'index']);
 
+
 /** ログイン処理 */
 Route::post('/login',  [LoginController::class, 'login']);
 /** ログアウト処理 */
@@ -41,7 +42,7 @@ Route::post('/logout',  [LoginController::class, 'logout']);
 | -------------------------------------------------------------------------
 */
 /** 投稿画面遷移 */
-Route::get('/post', [PostController::class, 'index']);
+Route::get('/post', [PostController::class, 'create']);
 /** 投稿処理 */
 Route::post('/post', [PostController::class, 'store']);
 
@@ -76,3 +77,14 @@ Route::get('user/{id}/follower', [FollowController::class, 'index']);
 
 /** フォロワー/フォロー解除処理 */
 Route::put('follow/{id}',[FollowController::class, 'update']);
+
+/*-------------------------------------------------------------------------
+| 新規登録
+| -------------------------------------------------------------------------
+*/
+
+/** 新規登録画面遷移 */
+Route::get('/signup', [UserController::class, 'create']);
+
+/** 新規登録処理 */
+Route::post('/singup', [UserController::class, 'store']);

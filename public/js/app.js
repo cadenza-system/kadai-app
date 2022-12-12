@@ -16,11 +16,14 @@ if (!isSp()) {
 }
 
 let logoutButton = document.getElementById("logout");
-logoutButton.addEventListener("click", function() {
-    if (confirm("ログアウトしますか?")) {
-        document.logout.submit();
-    }
-});
+if (logoutButton) {
+    logoutButton.addEventListener("click", function() {
+        if (confirm("ログアウトしますか?")) {
+            document.logout.submit();
+        }
+    });
+}
+
 // ----------
 
 /**

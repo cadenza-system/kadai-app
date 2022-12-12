@@ -30,7 +30,10 @@
             </form>
         </div>
         @else
-        <div><a href="/login">ログイン</a></div>
+        <div class="menu">
+            <div class="menu-item"><a href="/login">ログイン</a></div>
+            <div class="menu-item"><a href="/signup">新規作成</a></div>
+        </div>
         @endif
     </header>
 </body>
@@ -71,6 +74,18 @@
     header .logout {
         font-size: 12px;
         text-align: end;
+    }
+    
+    header .menu {
+        display: flex;
+        font-size: 12px;
+    }
+    
+    header .menu-item {
+        margin: 0 3px;
+        padding: 3px;
+        border: solid 1px whitesmoke;
+        border-radius: 5px;
     }
 </style>
 

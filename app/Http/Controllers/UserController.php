@@ -106,4 +106,23 @@ class UserController extends Controller
         // 画面表示
         return redirect('/user/'.$user->id);
     }
+
+
+    /**
+     * 新規登録画面遷移
+     */
+    public function create()
+    {
+        return view('user.signup');
+    }
+
+    /**
+     * 新規登録処理
+     */
+    public function store(Request $request)
+    {
+        //TODO 登録処理
+
+        return redirect('/');
+    }
 }

@@ -12,7 +12,7 @@ class PostController extends Controller
     /**
      * 投稿画面遷移
      */
-    function index() {
+    function create() {
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
             // ログインしていなければログインページへ
