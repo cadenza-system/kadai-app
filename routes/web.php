@@ -17,24 +17,62 @@ use App\Http\Controllers\FollowController;
 |
 */
 
+/*-------------------------------------------------------------------------
+| ホーム
+| -------------------------------------------------------------------------
+*/
+/** ホーム画面遷移 */
 Route::get('/', [HomeController::class, 'index']);
 
+/*-------------------------------------------------------------------------
+| ログイン
+| -------------------------------------------------------------------------
+*/
+/** ログイン画面遷移 */
 Route::get('/login', [LoginController::class, 'index']);
+
+/** ログイン処理 */
 Route::post('/login',  [LoginController::class, 'login']);
+/** ログアウト処理 */
 Route::post('/logout',  [LoginController::class, 'logout']);
 
+/*-------------------------------------------------------------------------
+| 投稿
+| -------------------------------------------------------------------------
+*/
+/** 投稿画面遷移 */
 Route::get('/post', [PostController::class, 'index']);
-Route::get('/post/detail/{id}', [PostController::class, 'show']);
-Route::get('/post/edit/{id}', [PostController::class, 'edit']);
-Route::put('/post/edit/{id}', [PostController::class, 'update']);
-Route::post('/post/delete/{id}', [PostController::class, 'delete']);
+/** 投稿処理 */
 Route::post('/post', [PostController::class, 'store']);
 
+/** 投稿詳細画面遷移 */
+Route::get('/post/detail/{id}', [PostController::class, 'show']);
+
+/** 投稿編集画面遷移 */
+Route::get('/post/edit/{id}', [PostController::class, 'edit']);
+/** 投稿編集処理 */
+Route::put('/post/edit/{id}', [PostController::class, 'update']);
+
+/** 投稿削除処理 */
+Route::post('/post/delete/{id}', [PostController::class, 'delete']);
+
+
+/*-------------------------------------------------------------------------
+| ユーザー
+| -------------------------------------------------------------------------
+*/
+/** ユーザー画面遷移 */
 Route::get('/user/{id}', [UserController::class, 'index']);
+
+/** プロフィール編集画面遷移 */
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+/** プロフィール編集処理 */
 Route::put('/user/edit/{id}', [UserController::class, 'update']);
 
+/** フォローリスト画面遷移 */
 Route::get('user/{id}/follow', [FollowController::class, 'index']);
+/** フォロワーリスト画面遷移 */
 Route::get('user/{id}/follower', [FollowController::class, 'index']);
 
+/** フォロワー/フォロー解除処理 */
 Route::put('follow/{id}',[FollowController::class, 'update']);

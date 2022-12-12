@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller,
 
 class PostController extends Controller
 {
+    /**
+     * 投稿画面遷移
+     */
     function index() {
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
@@ -16,9 +19,13 @@ class PostController extends Controller
             return redirect('/login');
         }
 
+        // 画面表示
         return view('post.index');
     }
 
+    /**
+     * 投稿処理
+     */
     function store(Request $request) {
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
@@ -29,6 +36,7 @@ class PostController extends Controller
         // ログイン中のユーザーの情報を取得する
         $loginUser = Session::get('user');
 
+        // データ登録
         $post = new Post;
         $post->user = $loginUser->id;
         $post->content = $request->postContent;
@@ -37,6 +45,9 @@ class PostController extends Controller
         return redirect('/');
     }
 
+    /**
+     * 投稿詳細画面遷移
+     */
     public function show($id)
     {
         // 指定したIDの投稿情報を取得する
@@ -59,9 +70,14 @@ class PostController extends Controller
             // 自分自身の投稿ページか判定
             $isOwnPost = $loginUser->id == $user->id;
         }
+
+        // 画面表示
         return view('post.detail', compact('post','user','isOwnPost'));
     }
 
+    /**
+     * 投稿編集画面
+     */
     public function edit($id)
     {
         $post = Post::find($id);
@@ -83,9 +99,13 @@ class PostController extends Controller
             return redirect('/');
         }
 
+        // 画面表示
         return view('post.edit', compact('post'));
     }
 
+    /**
+     * 投稿編集処理
+     */
     public function update(Request $request, $id)
     {
         // idから投稿を取得
@@ -109,11 +129,17 @@ class PostController extends Controller
             return redirect('/');
         }
 
+        // データ登録
         $post->content = $request->postContent;
         $post->save();
+
+        // 画面表示
         return redirect('/post/detail/'.$post->id);
     }
 
+    /**
+     * 投稿削除処理
+     */
     public function delete($id)
     {
         // idから投稿を取得
@@ -137,8 +163,10 @@ class PostController extends Controller
             return redirect('/');
         }
 
+        // データ登録
         $post->is_deleted = true;
         $post->save();
+
         return redirect('/');
     }
 }

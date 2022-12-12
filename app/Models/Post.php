@@ -10,6 +10,9 @@ class Post extends Model
 {
     use HasFactory;
 
+    /**
+     * この投稿を投稿したユーザーを取得する
+     */
     public function user() {
         return User::find($this->user);
     }

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
 
-    <title>kadai-app</title>
+    <title>kadai-app | ユーザー</title>
 </head>
+<!-- ユーザー画面 -->
 
 <body class="">
     <x-header></x-header>

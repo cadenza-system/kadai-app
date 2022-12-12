@@ -7,8 +7,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}" />
 
-    <title>kadai-app</title>
+    <title>kadai-app | ログイン</title>
 </head>
+<!-- ログイン画面 -->
 
 <body class="">
     <x-header></x-header>

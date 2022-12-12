@@ -8,12 +8,18 @@ use App\Http\Controllers\Controller,
 
 class LoginController extends Controller
 {
+    /**
+     * ログイン画面遷移
+     */
     public function index()
     {
         $errorMessage = null;
         return view('login', compact('errorMessage'));
     }
 
+    /**
+     * ログイン処理
+     */
     public function login(Request $request)
     {
         // 入力されたユーザーが存在するか確認
@@ -33,6 +39,9 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+    /**
+     * ログアウト処理
+     */
     public function logout() {
         Session::flush();
         return redirect('/login');

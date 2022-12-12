@@ -11,6 +11,9 @@ class User extends Model
 {
     use HasFactory;
 
+    /**
+     * ユーザーの投稿を取得する
+     */
     public function posts() {
         return Post::where('user', $this->id)
         ->where('is_deleted', 0)
@@ -18,6 +21,9 @@ class User extends Model
         ->get();
     }
 
+    /**
+     * ユーザーがフォローしているユーザーのリストを取得する
+     */
     public function followUsers() {
         $followUsers = Follow::where('user', $this->id)->get();
         $result = [];
@@ -28,6 +34,9 @@ class User extends Model
 
     }
 
+    /**
+     * ユーザーをフォローしているユーザーのリストを取得する
+     */
     public function followerUsers() {
         $followerUsers = Follow::where('follow_user', $this->id)->get();
         $result = [];
@@ -37,6 +46,9 @@ class User extends Model
         return $result;
     }
 
+    /**
+     * $idのユーザーがこのユーザーをフォローしているか判定する
+     */
     public function isFollowed($id) {
         foreach ($this->followUsers() as $followUser) {
             if ($followUser->id == $id) {
@@ -47,6 +59,9 @@ class User extends Model
         return false;
     }
 
+    /**
+     * $idのユーザーをフォローする
+     */
     public function follow($id) {
         $follow = new Follow;
         $follow->user = $this->id;
@@ -54,6 +69,9 @@ class User extends Model
         $follow->save();
     }
 
+    /**
+     * $idのユーザーをフォロー解除する
+     */
     public function unfollow($id) {
         Follow::where('user', $this->id)
         ->where('follow_user', $id)

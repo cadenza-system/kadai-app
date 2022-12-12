@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller,
 use App\Models\User;
 class UserController extends Controller
 {
+    /**
+     * ユーザー画面遷移
+     */
     public function index($id)
     {
         // セッションにログイン情報があるか確認
@@ -40,9 +43,14 @@ class UserController extends Controller
         if (!$isOwnPage) {
             $isFollowed = $loginUser->isFollowed($user->id);
         }
+
+        // 画面表示
         return view('user.index', compact('user','posts','followCount','followerCount','isOwnPage', 'isFollowed'));
     }
 
+    /**
+     * プロフィール編集画面遷移
+     */
     public function edit($id)
     {
         $user = User::find($id);
@@ -62,9 +70,13 @@ class UserController extends Controller
             return redirect('/');
         }
 
+        // 画面表示
         return view('user.edit', compact('user'));
     }
 
+    /**
+     * プロフィール編集処理
+     */
     public function update(Request $request, $id)
     {
         // idからユーザーを取得
@@ -86,9 +98,12 @@ class UserController extends Controller
             return redirect('/');
         }
 
+        // データ登録
         $user->name = $request->username;
         $user->biography = $request->biography;
         $user->save();
+
+        // 画面表示
         return redirect('/user/'.$user->id);
     }
 }

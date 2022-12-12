@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller,
 use App\Models\User;
 class FollowController extends Controller
 {
+    /**
+     * フォロー/フォロワーリスト画面遷移
+     */
     public function index($id)
     {
 
@@ -26,9 +29,13 @@ class FollowController extends Controller
         // ログイン中のユーザーの情報を取得する
         $loginUser = Session::get('user');
 
+        // 画面表示
         return view('user.follow', compact('user','followUsers','followerUsers'));
     }
 
+    /**
+     * フォロー/フォロワー解除処理
+     */
     public function update(Request $request, $id)
     {
         // idからユーザーを取得
@@ -51,6 +58,8 @@ class FollowController extends Controller
         } else {
             $loginUser->unfollow($id);
         }
+
+        // 画面表示
         return redirect('/user/'.$user->id);
     }
 }
