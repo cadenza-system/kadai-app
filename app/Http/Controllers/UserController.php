@@ -29,11 +29,18 @@ class UserController extends Controller
         // フォロー/フォロワー数の取得
         $followCount = count($user->followUsers());
         $followerCount = count($user->followerUsers());
+
         // ログイン中のユーザーの情報を取得する
         $loginUser = Session::get('user');
         // 自分自身のユーザーページか判定
         $isOwnPage = $loginUser->id == $user->id;
-        return view('user.index', compact('user','posts','followCount','followerCount','isOwnPage'));
+
+        // フォロー済みかどうか判定
+        $isFollowed = false;
+        if (!$isOwnPage) {
+            $isFollowed = $loginUser->isFollowed($user->id);
+        }
+        return view('user.index', compact('user','posts','followCount','followerCount','isOwnPage', 'isFollowed'));
     }
 
     public function edit($id)

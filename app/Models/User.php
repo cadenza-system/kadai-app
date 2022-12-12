@@ -33,4 +33,28 @@ class User extends Model
         }
         return $result;
     }
+
+    public function isFollowed($id) {
+        foreach ($this->followUsers() as $followUser) {
+            if ($followUser->id == $id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function follow($id) {
+        $follow = new Follow;
+        $follow->user = $this->id;
+        $follow->follow_user = $id;
+        $follow->save();
+    }
+
+    public function unfollow($id) {
+        Follow::where('user', $this->id)
+        ->where('follow_user', $id)
+        ->first()
+        ->delete();
+    }
 }

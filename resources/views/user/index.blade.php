@@ -21,6 +21,16 @@
             <a href="/user/edit/{{ $user->id }}">
                 <div class="edit">編集</div>
             </a>
+            @else
+            <div class="follow-button">
+                <form name="follow" action="/follow/{{ $user->id }}" method="post">
+                    @csrf @method('PUT') @if ($isFollowed)
+                    <input type="hidden" name="isFollow" value="0" />
+                    <button onClick="unfollow()">フォロー済み</button> @else
+                    <input type="hidden" name="isFollow" value="1" />
+                    <button>フォロー</button> @endif
+                </form>
+            </div>
             @endif
         </div>
         <div class="bio">
@@ -55,5 +65,12 @@
     <x-footer></x-footer>
 </body>
 <script src="{{ asset('/js/app.js') }}"></script>
+<script>
+    function unfollow() {
+        if (confirm("フォローを解除しますか?")) {
+            document.follow.submit();
+        }
+    }
+</script>
 
 </html>

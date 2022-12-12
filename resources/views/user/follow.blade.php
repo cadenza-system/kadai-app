@@ -12,9 +12,11 @@
 <body>
     <x-header></x-header>
     <div class="page">
-        <div class="user">
-            {{ $user->name }}
-        </div>
+        <a href="/user/{{ $user->id }}">
+            <div class="user">
+                {{ $user->name }}
+            </div>
+        </a>
         <div class="tab">
             <div id="follow-tab" class="tab-item follow-tab" onclick="switchTab('follow')">
                 フォロー
@@ -84,7 +86,7 @@
             .classList.remove("hidden");
     }
 </script>
-<style>
+<style scoped>
     .tab {
         display: flex;
         justify-content: space-evenly;
@@ -128,7 +130,7 @@
     }
     
     .selected {
-        background-color: lightgray;
+        text-decoration: underline overline lightblue;
     }
 </style>
 

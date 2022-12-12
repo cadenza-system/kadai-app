@@ -34,6 +34,4 @@ Route::put('/user/edit/{id}', [UserController::class, 'update']);
 Route::get('user/{id}/follow', [FollowController::class, 'index']);
 Route::get('user/{id}/follower', [FollowController::class, 'index']);
 
-Route::get('/user-settings', function () {
-    return view('user-settings');
-});
+Route::put('follow/{id}',[FollowController::class, 'update']);
