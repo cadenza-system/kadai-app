@@ -24,10 +24,6 @@ class FollowSeeder extends Seeder
             'follow_user' => '3',
         ]);
         Follow::create([
-            'user' => '1',
-            'follow_user' => '2',
-        ]);
-        Follow::create([
             'user' => '2',
             'follow_user' => '3',
         ]);
