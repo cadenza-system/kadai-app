@@ -15,9 +15,9 @@
     <body class="">
         <x-header></x-header>
         タイムライン
-        <div class="tweet-list">
+        <div class="post-list">
             @foreach ($posts as $post)
-                <div class="tweet">
+                <div class="post">
                     <div class="user">
                         <div class="icon">
                         </div>

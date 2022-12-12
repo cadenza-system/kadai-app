@@ -12,10 +12,15 @@
         <div class="logo">
           Kadai-app
         </div>
-        <div class="user">
         @if (Session::exists('user'))
+        <a href="/user/{{ Session::get('user')->id }}">
+        <div class="user">
           <div class="icon"></div>
           <div class="username"> {{ $loginUser = Session::get('user')->name }}</div>
+        </div>
+        </a>
+        @else
+          <div><a href="/login">ログイン</a></div>
         @endif
         </div>
     </header>

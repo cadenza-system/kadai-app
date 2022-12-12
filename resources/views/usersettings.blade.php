@@ -26,8 +26,8 @@
             </div>
         </div>
         ツイート一覧
-        <div class="tweet-list">
-        <div class="tweet">
+        <div class="post-list">
+        <div class="post">
             <div class="user">
                 <div class="icon">
                 </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="content">testestetste</div>
         </div>
-        <div class="tweet">
+        <div class="post">
             <div class="user">
                 <div class="icon">
                 </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="content">testestetste</div>
         </div>
-        <div class="tweet">
+        <div class="post">
             <div class="user">
                 <div class="icon">
                 </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="content">testestetste</div>
         </div>
-        <div class="tweet">
+        <div class="post">
             <div class="user">
                 <div class="icon">
                 </div>

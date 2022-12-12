@@ -36,11 +36,11 @@ header .user {
     justify-content: space-around;
 }
 
-.tweet-list {
+.post-list {
     padding: 40px 0 0 10px;
 }
 
-.tweet {
+.post {
     padding-bottom: 20px;
     width: 100%;
 }
@@ -58,7 +58,7 @@ header .user {
     display: flex;
 }
 
-.tweet .icon {
+.post .icon {
     width: 40px;
     height: 40px;
 }
@@ -68,29 +68,29 @@ header .user {
     background-color: coral;
 }
 
-.tweet .user {
+.post .user {
     display: flex;
     font-size: 16px;
 }
 
-.tweet .user .name {
+.post .user .name {
     margin-left: 10px;
 }
 
-.tweet .content {
+.post .content {
     font-size: 20px;
     padding-left: 40px;
 }
 
-.tweet-page .tweet {
+.post-page .post {
     padding: 0 10px;
 }
 
-.tweet-page .tweet .menu {
+.post-page .post .menu {
     display: flex;
     justify-content: end;
 }
 
-.tweet-page .menu-item {
+.post-page .menu-item {
     padding: 5px
 }

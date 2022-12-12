@@ -21,15 +21,14 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/post', [PostController::class, 'index']);
+Route::get('/post/detail/{id}', [PostController::class, 'show']);
+Route::get('/post/edit/{id}', [PostController::class, 'edit']);
+Route::put('/post/edit/{id}', [PostController::class, 'update']);
 Route::post('/post', [PostController::class, 'store']);
 
 Route::get('/user/{id}', [UserController::class, 'index']);
-
-Route::get('/tweet', function () {
-    return view('tweet');
-});
-
-
+Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+Route::put('/user/edit/{id}', [UserController::class, 'update']);
 
 Route::get('/follower', function () {
     return view('user');

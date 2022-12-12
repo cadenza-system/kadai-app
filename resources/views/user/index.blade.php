@@ -18,46 +18,34 @@
             <div class="user">
                 <div class="icon">
                 </div>
-                <div class="name">daichi</div>
-                <div class="edit">編集</div>
+                <div class="name">{{ $user->name }}</div>
+                @if ($isOwnPage)
+                    <a href="/user/edit/{{ $user->id }}">
+                        <div class="edit">編集</div>
+                    </a>
+                @endif
             </div>
             <div class="bio">
-                広島県出身・大阪府在住エンジニア
+                {{ $user->biography }}
             </div>
         </div>
         ツイート一覧
         <div class="post-list">
-        <div class="post">
-            <div class="user">
-                <div class="icon">
+            @foreach ($posts as $post)
+                <div class="post">
+                <a href="/post/detail/{{$post->id}}">
+                        <div class="user">
+                            <div class="icon">
+                            </div>
+                            <div class="name">
+                                {{ $user->name }}
+                            </div>
+                        </div>
+                        <div class="content">{{ $post->content }}</div>
+                        <div class="time-stamp">{{ $post->created_at }}</div>
+                    </a>
                 </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>
-        <div class="post">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>
-        <div class="post">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
-        </div>
-        <div class="post">
-            <div class="user">
-                <div class="icon">
-                </div>
-                <div class="name">hoge</div>
-            </div>
-            <div class="content">testestetste</div>
+            @endforeach
         </div>
         <x-footer></x-footer>
     </body>
