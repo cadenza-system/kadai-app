@@ -54,8 +54,10 @@ class FollowController extends Controller
         $loginUser = Session::get('user');
 
         if ($request->isFollow) {
+            // フォロー処理
             $loginUser->follow($id);
         } else {
+            // フォロー解除処理
             $loginUser->unfollow($id);
         }
 
