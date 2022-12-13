@@ -24,12 +24,13 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" />
             </div>
+            @if ($errorMessage)
+            <div class="error-message font-red">{{ $errorMessage }}</div>
+            @endif
             <div class="login-button">
                 <button class="button-white" type="submit">login</button>
             </div>
         </form>
-
-        @if ($errorMessage) {{ $errorMessage }} @endif
     </div>
 </body>
 <script src="{{ asset('/js/app.js') }}"></script>
@@ -70,6 +71,11 @@
         width: 50%;
         height: 30px;
         font-size: 18px;
+    }
+    
+    .login-page .error-message {
+        margin-top: 5px;
+        font-size: 10px;
     }
 </style>
 
